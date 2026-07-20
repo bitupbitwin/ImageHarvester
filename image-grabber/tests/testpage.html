@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><title>采集测试页</title>
+<style>
+  .hero { width:300px; height:200px;
+    background-image: url('https://example.com/bg-hero.jpg'); }
+  .hero::before { content:''; display:block; width:10px; height:10px;
+    background: url("https://example.com/pseudo-before.png"); }
+</style>
+</head>
+<body>
+  <!-- 普通 img -->
+  <img src="https://example.com/a.jpg" width="800" height="600" alt="图A">
+  <!-- srcset 取最大 -->
+  <img src="https://example.com/small.jpg"
+       srcset="https://example.com/w320.jpg 320w, https://example.com/w1280.jpg 1280w" alt="响应式">
+  <!-- 懒加载 -->
+  <img data-src="https://example.com/lazy1.webp" alt="懒1">
+  <img data-original="https://example.com/lazy2.png" alt="懒2">
+  <!-- picture -->
+  <picture>
+    <source srcset="https://example.com/pic-1x.avif 1x, https://example.com/pic-2x.avif 2x">
+    <img src="https://example.com/pic-fallback.jpg" alt="picture">
+  </picture>
+  <!-- 背景图 -->
+  <div class="hero"></div>
+  <!-- 图片直链 -->
+  <a href="https://example.com/full-size.png">查看大图</a>
+  <a href="https://example.com/not-an-image.html">普通链接</a>
+  <!-- 视频封面 -->
+  <video poster="https://example.com/poster.jpg"></video>
+  <!-- 内嵌 svg -->
+  <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="20" cy="20" r="18" fill="red"/>
+  </svg>
+  <!-- data URI 图 -->
+  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="1px">
+</body>
+</html>

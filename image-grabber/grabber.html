@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图片抓取器 · 抓取结果</title>
+  <link rel="stylesheet" href="grabber.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="icons/icon48.png" alt="logo" class="logo">
+      <div class="brand-text">
+        <h1>图片抓取器</h1>
+        <span id="pageInfo" class="page-info"></span>
+      </div>
+    </div>
+
+    <div class="toolbar" id="toolbar">
+      <div class="tool-group">
+        <button id="selectAll" class="btn btn-ghost" title="全选/取消全选">全选</button>
+        <button id="invertSel" class="btn btn-ghost" title="反选">反选</button>
+        <span class="count-badge">已选 <strong id="selectedCount">0</strong> / <span id="totalCount">0</span></span>
+      </div>
+
+      <div class="tool-group filters">
+        <label class="filter-item">
+          最小宽度
+          <input type="number" id="minWidth" min="0" step="10" value="0" class="num-input">
+        </label>
+        <label class="filter-item">
+          最小高度
+          <input type="number" id="minHeight" min="0" step="10" value="0" class="num-input">
+        </label>
+        <label class="filter-item">
+          格式
+          <select id="formatFilter" class="select-input">
+            <option value="">全部</option>
+          </select>
+        </label>
+        <label class="filter-item">
+          关键字
+          <input type="text" id="keyword" placeholder="URL 含…" class="text-input">
+        </label>
+        <label class="filter-item checkbox-item" title="隐藏无法加载或极小的图片">
+          <input type="checkbox" id="hideBroken" checked>
+          隐藏失效/超小图
+        </label>
+      </div>
+
+      <div class="tool-group sort-group">
+        <label class="filter-item">
+          排序
+          <select id="sortBy" class="select-input">
+            <option value="area-desc">尺寸大→小</option>
+            <option value="area-asc">尺寸小→大</option>
+            <option value="order">页面顺序</option>
+            <option value="name">文件名</option>
+          </select>
+        </label>
+        <div class="zoom">
+          <button id="zoomOut" class="btn btn-icon" title="缩小缩略图">−</button>
+          <button id="zoomIn" class="btn btn-icon" title="放大缩略图">＋</button>
+        </div>
+      </div>
+
+      <div class="tool-group actions">
+        <input type="text" id="folderName" class="text-input folder-input" placeholder="子文件夹（可选）">
+        <button id="downloadBtn" class="btn btn-primary" disabled>下载选中 (0)</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div id="emptyState" class="empty-state hidden">
+      <div class="empty-icon">🖼️</div>
+      <p id="emptyText">未在该页面找到图片。</p>
+    </div>
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="grabber.js"></script>
+</body>
+</html>
