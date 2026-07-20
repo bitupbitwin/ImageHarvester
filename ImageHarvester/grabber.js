@@ -161,7 +161,7 @@
     }
 
     $('#pageInfo').textContent = (session.pageTitle ? session.pageTitle + ' — ' : '') + (session.pageUrl || '');
-    document.title = '图片抓取器 · ' + (session.images.length) + ' 张图片';
+    document.title = 'ImageHarvester · ' + (session.images.length) + ' 张图片';
 
     items = (session.images || []).map((im) => ({
       url: im.url,
@@ -202,7 +202,7 @@
   }
 
   function renderInfo(title, message) {
-    document.title = '图片抓取器 · ' + (title || '提示');
+    document.title = 'ImageHarvester · ' + (title || '提示');
     $('#toolbar').classList.add('hidden');
     $('#pageInfo').textContent = '';
     showEmpty('');

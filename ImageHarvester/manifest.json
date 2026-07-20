@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "图片抓取器 · Image Grabber",
+  "name": "ImageHarvester · 图片抓取器",
   "version": "1.0.0",
   "description": "仿照 Fatkun，一键抓取当前页面（含背景图、懒加载、iframe）的所有图片，支持缩略图预览、按尺寸/格式筛选、批量选择与下载。",
   "permissions": [

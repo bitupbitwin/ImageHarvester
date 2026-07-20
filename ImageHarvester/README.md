@@ -1,4 +1,4 @@
-# 图片抓取器 · Image Grabber
+# ImageHarvester · 图片抓取器
 
 一个仿照 [Fatkun 图片批量下载](https://chrome.google.com/webstore) 的 Chrome 扩展（Manifest V3）。
 点击工具栏图标即可抓取**当前页面的所有图片**，在一个整洁的结果页里预览、筛选、批量选择并下载。
@@ -28,7 +28,7 @@
 
 1. 打开 Chrome（或 Edge），地址栏访问 `chrome://extensions`
 2. 打开右上角 **开发者模式**
-3. 点击 **加载已解压的扩展程序**，选择本 `image-grabber` 目录
+3. 点击 **加载已解压的扩展程序**，选择本 `ImageHarvester` 目录
 4. 工具栏出现蓝色下载图标即安装成功
 
 > 图标已随仓库提供。如需重新生成：`python3 icons/make_icons.py`
@@ -36,7 +36,7 @@
 ## 🖱️ 使用方法
 
 1. 打开任意网页，等图片加载出来（尤其是需要滚动触发的懒加载图，建议先滚到底）
-2. 点击工具栏的 **图片抓取器** 图标
+2. 点击工具栏的 **ImageHarvester** 图标
 3. 自动打开结果页，展示本页抓到的全部图片
 4. 用顶部筛选器缩小范围（拖动宽/高滑块设定尺寸区间）→ 勾选需要的图片（或「全选」）
 5. 逐张下载：可填子文件夹名 → 点击 **下载选中**
@@ -45,7 +45,7 @@
 ## 🗂️ 目录结构
 
 ```
-image-grabber/
+ImageHarvester/
 ├── manifest.json        # MV3 清单
 ├── background.js        # 后台 service worker：注入采集、汇总、打开结果页、处理下载
 ├── collector.js         # 注入到页面执行的图片采集脚本
