@@ -24,14 +24,26 @@
       </div>
 
       <div class="tool-group filters">
-        <label class="filter-item">
-          最小宽度
-          <input type="number" id="minWidth" min="0" step="10" value="0" class="num-input">
-        </label>
-        <label class="filter-item">
-          最小高度
-          <input type="number" id="minHeight" min="0" step="10" value="0" class="num-input">
-        </label>
+        <div class="range-group" title="拖动两端滑块，筛选宽度在该范围内的图片">
+          <span class="range-name">宽度</span>
+          <div class="dual-range" id="widthRange">
+            <div class="track"></div>
+            <div class="fill"></div>
+            <input type="range" class="range-min" min="0" max="1000" step="10" value="0">
+            <input type="range" class="range-max" min="0" max="1000" step="10" value="1000">
+          </div>
+          <span class="range-value" id="widthValue">0 – 1000</span>
+        </div>
+        <div class="range-group" title="拖动两端滑块，筛选高度在该范围内的图片">
+          <span class="range-name">高度</span>
+          <div class="dual-range" id="heightRange">
+            <div class="track"></div>
+            <div class="fill"></div>
+            <input type="range" class="range-min" min="0" max="1000" step="10" value="0">
+            <input type="range" class="range-max" min="0" max="1000" step="10" value="1000">
+          </div>
+          <span class="range-value" id="heightValue">0 – 1000</span>
+        </div>
         <label class="filter-item">
           格式
           <select id="formatFilter" class="select-input">
@@ -65,7 +77,11 @@
       </div>
 
       <div class="tool-group actions">
-        <input type="text" id="folderName" class="text-input folder-input" placeholder="子文件夹（可选）">
+        <label class="filter-item checkbox-item" title="勾选后，把选中的图片打包成一个 ZIP 文件下载">
+          <input type="checkbox" id="zipMode">
+          打包下载 (ZIP)
+        </label>
+        <input type="text" id="folderName" class="text-input folder-input" placeholder="子文件夹 / 压缩包名（可选）">
         <button id="downloadBtn" class="btn btn-primary" disabled>下载选中 (0)</button>
       </div>
     </div>

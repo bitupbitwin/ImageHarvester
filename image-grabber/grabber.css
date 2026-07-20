@@ -119,6 +119,87 @@ body {
   box-shadow: 0 0 0 3px var(--brand-soft);
 }
 
+/* ---------- 双滑块范围筛选 ---------- */
+.range-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.range-name { flex: 0 0 auto; }
+.range-value {
+  min-width: 88px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 12px;
+}
+.dual-range {
+  position: relative;
+  width: 150px;
+  height: 26px;
+  flex: 0 0 auto;
+}
+.dual-range .track,
+.dual-range .fill {
+  position: absolute;
+  top: 50%;
+  height: 4px;
+  transform: translateY(-50%);
+  border-radius: 2px;
+  pointer-events: none;
+}
+.dual-range .track {
+  left: 0;
+  right: 0;
+  background: var(--border);
+}
+.dual-range .fill {
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+}
+.dual-range input[type="range"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  pointer-events: none; /* 只有滑块手柄可点 */
+}
+.dual-range input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: auto;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--brand);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .25);
+  cursor: pointer;
+  transition: transform .1s;
+}
+.dual-range input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+.dual-range input[type="range"]::-moz-range-thumb {
+  pointer-events: auto;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--brand);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .25);
+  cursor: pointer;
+}
+/* range-max 层级更高，两手柄重叠在最右端时优先拖它 */
+.dual-range .range-max { z-index: 2; }
+.dual-range .range-min { z-index: 3; }
+
 .count-badge {
   font-size: 13px;
   color: var(--muted);

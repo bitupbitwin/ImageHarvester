@@ -37,7 +37,14 @@ await page.waitForTimeout(600);
 await page.click('.card:nth-child(1)');
 await page.click('.card:nth-child(3)');
 await page.click('.card:nth-child(5)');
-await page.waitForTimeout(300);
+// 展示滑块区间与打包下载勾选
+await page.evaluate(() => {
+  const lo = document.querySelector('#widthRange .range-min');
+  lo.value = 440;
+  lo.dispatchEvent(new Event('input', { bubbles: true }));
+});
+await page.check('#zipMode');
+await page.waitForTimeout(400);
 await page.screenshot({ path: join(__dirname, 'ui-preview.png'), fullPage: false });
 await ctx.close();
 console.log('screenshot saved: tests/ui-preview.png');
