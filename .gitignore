@@ -5,3 +5,7 @@ __pycache__/
 dist/
 build/
 .venv/
+
+# Chrome 扩展构建产物与签名私钥（切勿入库）
+*.crx
+*.pem
